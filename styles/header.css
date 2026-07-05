@@ -1,0 +1,372 @@
+.header {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  background-color: var(--bg-surface);
+  left: 0;
+  right: 0;
+  top: 0;
+  border-bottom: 1px solid var(--border-color);
+  z-index: 300;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger-btn {
+  height: 40px;
+  width: 40px;
+  margin-right: 16px;
+  margin-left: 16px;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--text-primary);
+  transition: background-color 0.15s ease;
+}
+
+.hamburger-btn:hover {
+  background-color: var(--bg-hover);
+}
+
+.youtube-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+}
+
+.youtube-logo i {
+  color: #ff0000;
+  font-size: 26px;
+}
+
+.middle-section {
+  flex: 1;
+  margin-left: 70px;
+  margin-right: 35px;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  flex: 1;
+  height: 36px;
+  font-size: 17px;
+  padding-left: 12px;
+  border: 1px solid var(--input-border);
+  box-shadow: inset 1px 1px 4px var(--input-shadow);
+  border-radius: 3px;
+  outline: none;
+  min-width: 0;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  transition:
+    box-shadow 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.search-bar:focus {
+  border-color: rgb(31, 141, 214);
+  box-shadow:
+    inset 1px 1px 4px var(--input-shadow),
+    0 0 0 1px rgba(31, 141, 214, 0.15);
+}
+
+.search-bar::placeholder {
+  font-size: 17px;
+  color: var(--text-secondary);
+}
+
+.search-btn {
+  height: 40px;
+  width: 66px;
+  background-color: var(--bg-hover);
+  border: 1px solid var(--input-border);
+  cursor: pointer;
+  margin-left: -2px;
+  margin-right: 10px;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease;
+}
+
+.search-btn:hover {
+  background-color: var(--bg-hover-strong);
+}
+
+.search-btn,
+.voice-search-btn,
+.upload-icon-container,
+.youtube-apps-container,
+.notifications-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.upload-icon-container,
+.youtube-apps-container,
+.notifications-container {
+  border: none;
+  background: none;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  padding: 0;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.upload-icon-container:hover,
+.youtube-apps-container:hover,
+.notifications-container:hover {
+  background-color: var(--bg-hover);
+}
+
+.upload-icon-container:active,
+.youtube-apps-container:active,
+.notifications-container:active {
+  transform: scale(0.94);
+}
+
+/* ===== THEME TOGGLE ===== */
+/* Sits between the "Create" icon and the "YouTube apps" icon.
+   Pure CSS: checking the hidden checkbox flips theme variables
+   on <body> via :has() in general.css — no JS involved. */
+.theme-toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.theme-toggle-label:hover {
+  background-color: var(--bg-hover);
+}
+
+.theme-toggle-label:active {
+  transform: scale(0.94);
+}
+
+.theme-toggle-label i {
+  font-size: 18px;
+  color: var(--text-primary);
+  position: absolute;
+  transition:
+    opacity 0.2s ease,
+    transform 0.3s ease;
+}
+
+.theme-icon-dark {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+.theme-icon-light {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle-input:checked + .theme-toggle-label .theme-icon-light {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+.theme-toggle-input:checked + .theme-toggle-label .theme-icon-dark {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle-input:focus-visible + .theme-toggle-label {
+  outline: 2px solid rgb(31, 141, 214);
+  outline-offset: 2px;
+}
+
+.search-btn .tool-tip,
+.voice-search-btn .tool-tip,
+.upload-icon-container .tool-tip,
+.youtube-apps-container .tool-tip,
+.theme-toggle-label .tool-tip,
+.notifications-container .tool-tip {
+  position: absolute;
+  background-color: rgba(107, 106, 106, 0.8);
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  bottom: -30px;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.search-btn:hover .tool-tip,
+.voice-search-btn:hover .tool-tip,
+.upload-icon-container:hover .tool-tip,
+.youtube-apps-container:hover .tool-tip,
+.theme-toggle-label:hover .tool-tip,
+.notifications-container:hover .tool-tip {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.search-icon {
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.voice-search-btn {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--bg-hover);
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
+}
+
+.voice-search-icon {
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.right-section {
+  width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.upload-icon,
+.youtube-apps-icon,
+.notifications-icon {
+  font-size: 20px;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.notifications-container {
+  position: relative;
+}
+
+.notifications-count {
+  position: absolute;
+  top: -4px;
+  right: 0px;
+  color: #fff;
+  background-color: rgb(175, 6, 6);
+  border-radius: 10px;
+  font-size: 12px;
+  padding-block: 2px;
+  padding-inline: 5px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.current-user-pic {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease;
+}
+
+.current-user-pic:hover {
+  box-shadow: 0 0 0 2px var(--border-color);
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet: sidebar collapses to an icon rail, so give the middle
+   section a little more breathing room. */
+@media (max-width: 900px) {
+  .middle-section {
+    margin-left: 24px;
+    margin-right: 20px;
+  }
+}
+
+/* Mobile: show the hamburger toggle, hide the wordmark and the
+   less critical right-side icons, let the search bar take priority. */
+@media (max-width: 600px) {
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .youtube-logo span {
+    display: none;
+  }
+
+  .middle-section {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .voice-search-btn {
+    display: none;
+  }
+
+  .right-section {
+    width: auto;
+    gap: 14px;
+    margin-right: 8px;
+  }
+
+  .youtube-apps-container {
+    display: none;
+  }
+}
+
+/* Very small screens: drop the search bar to an icon-only trigger
+   so the logo and account icons always stay visible. */
+@media (max-width: 420px) {
+  .search-bar {
+    display: none;
+  }
+
+  .search-btn {
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+  }
+
+  .middle-section {
+    flex: 0 0 auto;
+    margin-left: auto;
+    margin-right: 8px;
+  }
+}

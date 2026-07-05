@@ -1,0 +1,101 @@
+.side-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 55px;
+  background-color: var(--bg-surface);
+  width: 75px;
+  z-index: 250;
+  padding-top: 8px;
+  overflow-y: auto;
+  transition:
+    transform 0.2s ease,
+    width 0.2s ease,
+    background-color 0.3s ease;
+}
+
+.side-bar-link {
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.side-bar-link:hover {
+  background-color: var(--bg-hover);
+  cursor: pointer;
+}
+
+.side-bar .side-bar-link i {
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.side-bar-link div {
+  font-family: "Roboto", Arial;
+  font-size: 11px;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.side-bar-backdrop {
+  display: none;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet: keep the icon rail, it already matches this breakpoint,
+   nothing to change here structurally. */
+
+/* Mobile: sidebar becomes an off-canvas drawer that slides in from
+   the left, toggled by the hamburger button in the header. */
+@media (max-width: 600px) {
+  .side-bar {
+    top: 0;
+    width: 240px;
+    padding-top: 64px;
+    transform: translateX(-100%);
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .side-bar.open {
+    transform: translateX(0);
+  }
+
+  .side-bar-link {
+    height: 48px;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 20px;
+    gap: 20px;
+  }
+
+  .side-bar .side-bar-link i {
+    margin-bottom: 0;
+    width: 20px;
+    text-align: center;
+  }
+
+  .side-bar-link div {
+    font-size: 14px;
+  }
+
+  .side-bar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 240;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .side-bar-backdrop.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

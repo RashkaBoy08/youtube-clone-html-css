@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/side-bar.css" />
+    <link rel="stylesheet" href="styles/video.css" />
+    <!-- ICONS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <title>Youtube | Clone</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="left-section">
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <!-- Youtube-Logo -->
+        <a
+          href="https://www.youtube.com"
+          class="youtube-logo"
+          aria-label="YouTube Home"
+        >
+          <i class="fa-brands fa-youtube"></i>
+          <span>YouTube</span>
+        </a>
+      </div>
+
+      <div class="middle-section">
+        <input type="text" class="search-bar" placeholder="Search" />
+        <button class="search-btn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <div class="tool-tip">Search</div>
+        </button>
+        <button class="voice-search-btn" aria-label="Search with your voice">
+          <i class="fa-solid fa-microphone voice-search-icon"></i>
+          <div class="tool-tip">Search with your voice</div>
+        </button>
+      </div>
+
+      <div class="right-section">
+        <button class="upload-icon-container" aria-label="Create">
+          <i class="fa-solid fa-video upload-icon"></i>
+          <div class="tool-tip">Create</div>
+        </button>
+
+        <!-- Pure CSS dark/light theme toggle: checking this box flips
+             theme variables on <body> (see general.css). No JS. -->
+        <input type="checkbox" id="themeToggle" class="theme-toggle-input" />
+        <label
+          for="themeToggle"
+          class="theme-toggle-label"
+          aria-label="Toggle dark mode"
+        >
+          <i class="fa-solid fa-moon theme-icon-light"></i>
+          <i class="fa-solid fa-sun theme-icon-dark"></i>
+          <div class="tool-tip">Toggle theme</div>
+        </label>
+
+        <button class="youtube-apps-container" aria-label="YouTube apps">
+          <i class="fa-solid fa-table-cells youtube-apps-icon"></i>
+          <div class="tool-tip">Youtube apps</div>
+        </button>
+
+        <button class="notifications-container" aria-label="Notifications">
+          <i class="fa-regular fa-bell notifications-icon"></i>
+          <div class="notifications-count">9</div>
+          <div class="tool-tip">Notifications</div>
+        </button>
+
+        <img
+          src="channel-pictures/my-channel.jpg"
+          class="current-user-pic"
+          alt="Your channel avatar"
+        />
+      </div>
+    </div>
+    <!-- END HEADER -->
+
+    <!-- Side Bar -->
+    <div class="side-bar" id="sideBar">
+      <a href="#" class="side-bar-link">
+        <i class="fa-solid fa-house"></i>
+        <div>Home</div>
+      </a>
+      <a href="#" class="side-bar-link">
+        <i class="fa-solid fa-compass"></i>
+        <div>Explore</div>
+      </a>
+      <a href="#" class="side-bar-link">
+        <i class="fa-solid fa-rectangle-list"></i>
+        <div>Subscriptions</div>
+      </a>
+      <a href="#" class="side-bar-link">
+        <i class="fa-solid fa-star"></i>
+        <div>Originals</div>
+      </a>
+      <a href="#" class="side-bar-link">
+        <i class="fa-solid fa-music"></i>
+        <div>Youtube Music</div>
+      </a>
+      <a href="#" class="side-bar-link">
+        <i class="fa-solid fa-photo-film"></i>
+        <div>Library</div>
+      </a>
+    </div>
+    <!-- Backdrop shown behind sidebar on mobile when it's open -->
+    <div class="side-bar-backdrop" id="sideBarBackdrop"></div>
+
+    <div class="video-grid">
+      <!-- Video preview 1 -->
+      <div class="video-preview">
+        <a
+          href="https://www.youtube.com"
+          class="thumbnail-link"
+          aria-label="Watch: Waa Maxay AI Agent ?"
+        >
+          <div class="thumbnail-row">
+            <img
+              src="thumbnails/thumbnail-1.jpg"
+              alt="Waa Maxay AI Agent ? video thumbnail"
+              class="thumbnail"
+            />
+            <div class="video-time">9:47</div>
+          </div>
+        </a>
+
+        <div class="video-info-grid">
+          <a
+            href="https://www.youtube.com"
+            class="channel-pic-link"
+            aria-label="Dugsiiye channel"
+          >
+            <div class="channel-pic">
+              <img
+                src="channel-pictures/channel-1.jpeg"
+                class="profile-pic"
+                alt="Dugsiiye channel avatar"
+              />
+            </div>
+          </a>
+          <div class="video-info">
+            <a href="https://www.youtube.com" class="video-title-link">
+              <p class="video-title">Waa Maxay AI Agent ?</p>
+            </a>
+            <a href="https://www.youtube.com" class="video-author">Dugsiiye</a>
+            <p class="video-stats">2.9K views &#183; 2 Weeks ago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video preview 2 -->
+      <div class="video-preview">
+        <a
+          href="https://www.youtube.com"
+          class="thumbnail-link"
+          aria-label="Watch: Ma Aragtay AI Lagu Soo Kordhiyey Whatsappka?"
+        >
+          <div class="thumbnail-row">
+            <img
+              src="thumbnails/thumbnail-2.jpg"
+              alt="Ma Aragtay AI Lagu Soo Kordhiyey Whatsappka? video thumbnail"
+              class="thumbnail"
+            />
+            <div class="video-time">3:28</div>
+          </div>
+        </a>
+        <div class="video-info-grid">
+          <a
+            href="https://www.youtube.com"
+            class="channel-pic-link"
+            aria-label="iM252 channel"
+          >
+            <div class="channel-pic">
+              <img
+                src="channel-pictures/channel-2.jpeg"
+                class="profile-pic"
+                alt="iM252 channel avatar"
+              />
+            </div>
+          </a>
+
+          <div class="video-info">
+            <a href="https://www.youtube.com" class="video-title-link">
+              <p class="video-title">
+                Ma Aragtay AI Lagu Soo Kordhiyey Whatsappka? Waa UPDATE WEYN
+                Muhiimna Kuu ah
+              </p>
+            </a>
+            <a href="https://www.youtube.com" class="video-author">iM252</a>
+            <p class="video-stats">4K views &#183; 2 weeks ago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video preview 3 -->
+      <div class="video-preview">
+        <a
+          href="https://www.youtube.com"
+          class="thumbnail-link"
+          aria-label="Watch: Google Drive: Sida Files-kaaga Loogu Keydsado Si Ammaan ah"
+        >
+          <div class="thumbnail-row">
+            <img
+              src="thumbnails/thumbnail-3.jpg"
+              alt="Google Drive: Sida Files-kaaga Loogu Keydsado Si Ammaan ah video thumbnail"
+              class="thumbnail"
+            />
+            <div class="video-time">13:55</div>
+          </div>
+        </a>
+
+        <div class="video-info-grid">
+          <a
+            href="https://www.youtube.com"
+            class="channel-pic-link"
+            aria-label="Eng Yuyu channel"
+          >
+            <div class="channel-pic">
+              <img
+                src="channel-pictures/channel-3.jpeg"
+                class="profile-pic"
+                alt="Eng Yuyu channel avatar"
+              />
+            </div>
+          </a>
+          <div class="video-info">
+            <a href="https://www.youtube.com" class="video-title-link">
+              <p class="video-title">
+                Google Drive: Sida Files-kaaga Loogu Keydsado Si Ammaan ah
+              </p>
+            </a>
+            <a href="https://www.youtube.com" class="video-author">Eng Yuyu</a>
+            <p class="video-stats">6.2K views &#183; 2 weeks ago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video preview 4 -->
+      <div class="video-preview">
+        <a
+          href="https://www.youtube.com"
+          class="thumbnail-link"
+          aria-label="Watch: JavaScript Full Course for free"
+        >
+          <div class="thumbnail-row">
+            <img
+              src="thumbnails/thumbnail-4.jpg"
+              alt="JavaScript Full Course for free video thumbnail"
+              class="thumbnail"
+            />
+            <div class="video-time">12:00:00</div>
+          </div>
+        </a>
+        <div class="video-info-grid">
+          <a
+            href="https://www.youtube.com"
+            class="channel-pic-link"
+            aria-label="Bro Code channel"
+          >
+            <div class="channel-pic">
+              <img
+                src="channel-pictures/channel-4.jpeg"
+                class="profile-pic"
+                alt="Bro Code channel avatar"
+              />
+            </div>
+          </a>
+
+          <div class="video-info">
+            <a href="https://www.youtube.com" class="video-title-link">
+              <p class="video-title">JavaScript Full Course for free 🌐</p>
+            </a>
+            <a href="https://www.youtube.com" class="video-author">Bro Code</a>
+            <p class="video-stats">5.3M views &#183; 2 years ago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video preview 5 -->
+      <div class="video-preview">
+        <a
+          href="https://www.youtube.com"
+          class="thumbnail-link"
+          aria-label="Watch: Git and GitHub - 0 Experience to Professional in 1 Tutorial (Part 1)"
+        >
+          <div class="thumbnail-row">
+            <img
+              src="thumbnails/thumbnail-5.jpg"
+              alt="Git and GitHub - 0 Experience to Professional video thumbnail"
+              class="thumbnail"
+            />
+            <div class="video-time">36:57</div>
+          </div>
+        </a>
+
+        <div class="video-info-grid">
+          <a
+            href="https://www.youtube.com"
+            class="channel-pic-link"
+            aria-label="SuperSimpleDev channel"
+          >
+            <div class="channel-pic">
+              <img
+                src="channel-pictures/channel-5.jpeg"
+                class="profile-pic"
+                alt="SuperSimpleDev channel avatar"
+              />
+            </div>
+          </a>
+          <div class="video-info">
+            <a href="https://www.youtube.com" class="video-title-link">
+              <p class="video-title">
+                Git and GitHub - 0 Experience to Professional in 1 Tutorial
+                (Part 1)
+              </p>
+            </a>
+            <a href="https://www.youtube.com" class="video-author"
+              >SuperSimpleDev</a
+            >
+            <p class="video-stats">789K views &#183; 5 years ago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video preview 6 -->
+      <div class="video-preview">
+        <a
+          href="https://www.youtube.com"
+          class="thumbnail-link"
+          aria-label="Watch: MUXAADARO CUSUB | Maxaa Anfacaya Jaaliyadaha Muslimka ee Jooga Galbeedka"
+        >
+          <div class="thumbnail-row">
+            <img
+              src="thumbnails/thumbnail-6.jpg"
+              alt="MUXAADARO CUSUB video thumbnail"
+              class="thumbnail"
+            />
+            <div class="video-time">42:07</div>
+          </div>
+        </a>
+        <div class="video-info-grid">
+          <a
+            href="https://www.youtube.com"
+            class="channel-pic-link"
+            aria-label="Sheekh Mustafe Official Channel"
+          >
+            <div class="channel-pic">
+              <img
+                src="channel-pictures/channel-6.jpeg"
+                class="profile-pic"
+                alt="Sheikh Mustafe channel avatar"
+              />
+            </div>
+          </a>
+
+          <div class="video-info">
+            <a href="https://www.youtube.com" class="video-title-link">
+              <p class="video-title">
+                MUXAADARO CUSUB | Maxaa Anfacaya Jaaliyadaha Muslimka ee Jooga
+                Galbeedka |Sh Mustafe Xaaji Ismaaciil
+              </p>
+            </a>
+            <a href="https://www.youtube.com" class="video-author"
+              >Sheekh Mustafe Official Channel</a
+            >
+            <p class="video-stats">31K views &#183; 8 months ago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video preview 7 -->
+      <div class="video-preview">
+        <a
+          href="https://www.youtube.com"
+          class="thumbnail-link"
+          aria-label="Watch: I Wasted YEARS Learning to Code Before I Learned This."
+        >
+          <div class="thumbnail-row">
+            <img
+              src="thumbnails/thumbnail-7.jpg"
+              alt="I Wasted YEARS Learning to Code Before I Learned This video thumbnail"
+              class="thumbnail"
+            />
+            <div class="video-time">5:22</div>
+          </div>
+        </a>
+        <div class="video-info-grid">
+          <a
+            href="https://www.youtube.com"
+            class="channel-pic-link"
+            aria-label="Web Developete channel"
+          >
+            <div class="channel-pic">
+              <img
+                src="channel-pictures/channel-7.jpeg"
+                class="profile-pic"
+                alt="Web Developete channel avatar"
+              />
+            </div>
+          </a>
+
+          <div class="video-info">
+            <a href="https://www.youtube.com" class="video-title-link">
+              <p class="video-title">
+                I Wasted YEARS Learning to Code Before I Learned This.
+              </p>
+            </a>
+            <a href="https://www.youtube.com" class="video-author"
+              >Web Developete</a
+            >
+            <p class="video-stats">345K views &#183; 7 months ago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video preview 8 -->
+      <div class="video-preview">
+        <a
+          href="https://www.youtube.com"
+          class="thumbnail-link"
+          aria-label="Watch: Waxaan Bartay Allah, Noloshayduna Way Isbeddeshay!"
+        >
+          <div class="thumbnail-row">
+            <img
+              src="thumbnails/thumbnail-8.jpg"
+              alt="Waxaan Bartay Allah, Noloshayduna Way Isbeddeshay video thumbnail"
+              class="thumbnail"
+            />
+            <div class="video-time">2:24:32</div>
+          </div>
+        </a>
+        <div class="video-info-grid">
+          <a
+            href="https://www.youtube.com"
+            class="channel-pic-link"
+            aria-label="Abdijaliil Show channel"
+          >
+            <div class="channel-pic">
+              <img
+                src="channel-pictures/channel-8.jpeg"
+                class="profile-pic"
+                alt="Abdijaliil Show channel avatar"
+              />
+            </div>
+          </a>
+
+          <div class="video-info">
+            <a href="https://www.youtube.com" class="video-title-link">
+              <p class="video-title">
+                Waxaan Bartay Allah, Noloshayduna Way Isbeddeshay!
+              </p>
+            </a>
+            <a href="https://www.youtube.com" class="video-author"
+              >Abdijaliil Show</a
+            >
+            <p class="video-stats">1.9M views &#183; 9 months ago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video preview 9 -->
+      <div class="video-preview">
+        <a
+          href="https://www.youtube.com"
+          class="thumbnail-link"
+          aria-label="Watch: Tuugo ka xariifsan ayaa heshey FBI-dii America"
+        >
+          <div class="thumbnail-row">
+            <img
+              src="thumbnails/thumbnail-9.jpg"
+              alt="Tuugo ka xariifsan ayaa heshey FBI-dii America video thumbnail"
+              class="thumbnail"
+            />
+            <div class="video-time">1:08:42</div>
+          </div>
+        </a>
+        <div class="video-info-grid">
+          <a
+            href="https://www.youtube.com"
+            class="channel-pic-link"
+            aria-label="DADWEYNAHA channel"
+          >
+            <div class="channel-pic">
+              <img
+                src="channel-pictures/channel-9.jpeg"
+                class="profile-pic"
+                alt="Dadweynaha channel avatar"
+              />
+            </div>
+          </a>
+
+          <div class="video-info">
+            <a href="https://www.youtube.com" class="video-title-link">
+              <p class="video-title">
+                Tuugo ka xariifsan ayaa heshey FBI-dii America
+              </p>
+            </a>
+            <a href="https://www.youtube.com" class="video-author"
+              >DADWEYNAHA</a
+            >
+            <p class="video-stats">485 views &#183; 5 months ago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video preview 10 -->
+      <div class="video-preview">
+        <a
+          href="https://www.youtube.com"
+          class="thumbnail-link"
+          aria-label="Watch: The only 4 skills you need to build a $1B company"
+        >
+          <div class="thumbnail-row">
+            <img
+              src="thumbnails/thumbnail-10.jpg"
+              alt="The only 4 skills you need to build a $1B company video thumbnail"
+              class="thumbnail"
+            />
+            <div class="video-time">38:15</div>
+          </div>
+        </a>
+        <div class="video-info-grid">
+          <a
+            href="https://www.youtube.com"
+            class="channel-pic-link"
+            aria-label="Dan Martell channel"
+          >
+            <div class="channel-pic">
+              <img
+                src="channel-pictures/channel-10.jpeg"
+                class="profile-pic"
+                alt="Dan Martell channel avatar"
+              />
+            </div>
+          </a>
+
+          <div class="video-info">
+            <a href="https://www.youtube.com" class="video-title-link">
+              <p class="video-title">
+                The only 4 skills you need to build a $1B company…
+              </p>
+            </a>
+            <a href="https://www.youtube.com" class="video-author"
+              >Dan Martell</a
+            >
+            <p class="video-stats">600K views &#183; 2 years ago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video preview 11 -->
+      <div class="video-preview">
+        <a
+          href="https://www.youtube.com"
+          class="thumbnail-link"
+          aria-label="Watch: Buugga The Psychology Of Money - Xalqada 1aad"
+        >
+          <div class="thumbnail-row">
+            <img
+              src="thumbnails/thumbnail-11.jpg"
+              alt="Buugga The Psychology Of Money video thumbnail"
+              class="thumbnail"
+            />
+            <div class="video-time">22:01</div>
+          </div>
+        </a>
+        <div class="video-info-grid">
+          <a
+            href="https://www.youtube.com"
+            class="channel-pic-link"
+            aria-label="XOGGOOB channel"
+          >
+            <div class="channel-pic">
+              <img
+                src="channel-pictures/channel-11.jpeg"
+                class="profile-pic"
+                alt="Xoggoob channel avatar"
+              />
+            </div>
+          </a>
+
+          <div class="video-info">
+            <a href="https://www.youtube.com" class="video-title-link">
+              <p class="video-title">
+                Buugga The Psychology Of Money ( Cilmi Nafsiga Lacagta) -
+                Xalqada 1aad
+              </p>
+            </a>
+            <a href="https://www.youtube.com" class="video-author">XOGGOOB</a>
+            <p class="video-stats">81K views &#183; 4 months ago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video preview 12 -->
+      <div class="video-preview">
+        <a
+          href="https://www.youtube.com"
+          class="thumbnail-link"
+          aria-label="Watch: DILAAGII CAGAHA CADAA KIIS DHACAY 1929KII"
+        >
+          <div class="thumbnail-row">
+            <img
+              src="thumbnails/thumbnail-12.jpg"
+              alt="Sawda Bilan video thumbnail"
+              class="thumbnail"
+            />
+            <div class="video-time">53:52</div>
+          </div>
+        </a>
+        <div class="video-info-grid">
+          <a
+            href="https://www.youtube.com"
+            class="channel-pic-link"
+            aria-label="Sawda Bilan channel"
+          >
+            <div class="channel-pic">
+              <img
+                src="channel-pictures/channel-12.jpeg"
+                class="profile-pic"
+                alt="Sawda Bilan avatar"
+              />
+            </div>
+          </a>
+          <div class="video-info">
+            <a href="https://www.youtube.com" class="video-title-link">
+              <p class="video-title">
+                DILAAGII CAGAHA CADAA KIIS DHACAY 1929KII
+              </p>
+            </a>
+            <a href="https://www.youtube.com" class="video-author"
+              >Sawda Bilan</a
+            >
+            <p class="video-stats">473K views &#183; 8 months ago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRID-VIDEO END -->
+    </div>
+
+    <script>
+      // Simple mobile sidebar toggle: hamburger opens/closes the sidebar
+      // as an overlay on small screens (sidebar.css handles the actual
+      // responsive styling / media queries).
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const sideBar = document.getElementById("sideBar");
+      const backdrop = document.getElementById("sideBarBackdrop");
+
+      function closeSideBar() {
+        sideBar.classList.remove("open");
+        backdrop.classList.remove("visible");
+      }
+
+      hamburgerBtn.addEventListener("click", () => {
+        sideBar.classList.toggle("open");
+        backdrop.classList.toggle("visible");
+      });
+
+      backdrop.addEventListener("click", closeSideBar);
+    </script>
+  </body>
+</html>
